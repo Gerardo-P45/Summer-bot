@@ -13,6 +13,7 @@ public class Auton extends CommandBase {
     }
     @Override
     public void initialize() {
+        m_timer = new Timer();
         m_timer.reset();
         m_timer.start();
     } 
