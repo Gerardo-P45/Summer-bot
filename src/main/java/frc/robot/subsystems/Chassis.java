@@ -4,9 +4,11 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -22,6 +24,8 @@ public class Chassis extends SubsystemBase {
     rmotor = new WPI_TalonFX(Constants.R_TALON_MOTOR_ID);
     dchassis = new DifferentialDrive (
     lmotor,rmotor);
+    lmotor.setInverted(TalonFXInvertType.CounterClockwise);
+    rmotor.setInverted(TalonFXInvertType.Clockwise);
 }
 
 public void run_arcade_drive (double speed, double rotation){
